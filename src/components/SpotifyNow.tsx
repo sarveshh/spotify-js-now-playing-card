@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { SpotifyNowProps, NowPlayingType as SpotifyObject } from "./types";
 import ls from "localstorage-slim";
 import { getAccessToken, getSongInfo } from "./api";
-import { NowPlayingCard } from "./NowPlayingCard";
+import { NowPlayingCard } from "./variants";
 
 ls.config.encrypt = true;
 

@@ -5,6 +5,12 @@ export type SpotifyNowProps = {
   variant?: string;
 };
 
+export type DebounceFunction<T extends unknown[]> = (...args: T) => void;
+
+export type PreviewPlayerProps = {
+  lastPlayed: NowPlayingType | null;
+};
+
 export type NowPlayingCardProps = {
   variant?: string;
   lastPlayed?: NowPlayingType | null;

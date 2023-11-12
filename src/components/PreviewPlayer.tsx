@@ -55,7 +55,7 @@ const PreviewPlayer = ({ lastPlayed, variant }: PreviewPlayerProps) => {
   if (!lastPlayed?.item?.preview_url) return null;
 
   return (
-    <div className="bg-slate-50 text-slate-500 transition-all duration-500 dark:bg-slate-600 transition-all duration-500 dark:text-slate-200 rounded-b-xl flex items-center">
+    <div className="bg-slate-50 text-slate-500 transition-all  dark:bg-slate-600 duration-500 dark:text-slate-200 rounded-b-xl flex items-center">
       <div className="flex-auto flex items-center justify-evenly">
         {variant !== "minimal" && (
           <button
@@ -97,7 +97,7 @@ const PreviewPlayer = ({ lastPlayed, variant }: PreviewPlayerProps) => {
       </div>
       <button
         type="button"
-        className="bg-white text-slate-900 transition-all duration-500 dark:bg-slate-100 transition-all duration-500 dark:text-slate-700 flex-none -my-2 mx-auto w-20 h-20 rounded-full ring-1 ring-slate-900/5 shadow-md flex items-center justify-center"
+        className="bg-white text-slate-900  dark:bg-slate-100 transition-all duration-500 dark:text-slate-700 flex-none -my-2 mx-auto w-20 h-20 rounded-full ring-1 ring-slate-900/5 shadow-md flex items-center justify-center"
         aria-label="Pause"
         onClick={toggle}
       >
@@ -140,7 +140,7 @@ const PreviewPlayer = ({ lastPlayed, variant }: PreviewPlayerProps) => {
           <button
             type="button"
             id="playbackRate"
-            className="rounded-lg text-xs leading-6 font-semibold px-2 ring-2 ring-inset ring-slate-500 text-slate-500 transition-all duration-500 dark:text-slate-100 transition-all duration-500 dark:ring-0 transition-all duration-500 dark:bg-slate-500"
+            className="rounded-lg text-xs leading-6 font-semibold px-2 ring-2 ring-inset ring-slate-500 text-slate-500   dark:text-slate-100 transition-all duration-500 dark:ring-0  dark:bg-slate-500"
             onClick={debouncedChangeRate}
           >
             <span id="playbackRate">{audio.playbackRate}x</span>

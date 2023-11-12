@@ -2,10 +2,10 @@ import { timeStringFromMs } from "../utils";
 import { PreviewPlayerProps } from "../types";
 import PreviewPlayer from "../PreviewPlayer";
 
-const DefaultVariant = ({ lastPlayed }: PreviewPlayerProps) => {
+const DefaultVariant = ({ lastPlayed, showPreviewBar }: PreviewPlayerProps) => {
   if (!lastPlayed) return null;
   return (
-    <div className="mt-6 sm:mt-10 relative z-10 rounded-xl shadow-xl">
+    <div className=" z-10 rounded-xl shadow-xl">
       <div className="bg-white border-slate-100 transition-all duration-500 dark:bg-slate-800 transition-all duration-500 dark:border-slate-500 border-b rounded-t-xl p-4 pb-6 sm:p-10 sm:pb-8 lg:p-6 xl:p-10 xl:pb-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8">
         <div className="flex items-center space-x-4">
           <img
@@ -78,7 +78,7 @@ const DefaultVariant = ({ lastPlayed }: PreviewPlayerProps) => {
           </div>
         </div>
       </div>
-      {lastPlayed?.item?.preview_url && (
+      {lastPlayed?.item?.preview_url && showPreviewBar && (
         <PreviewPlayer lastPlayed={lastPlayed} />
       )}
     </div>

@@ -11,6 +11,8 @@ const SpotifyPlaying = ({
   client_secret,
   refresh_token,
   variant,
+  refreshInterval = 10000,
+  showPreviewBar = true,
 }: SpotifyNowProps) => {
   const [lastPlayed, setLastPlayed] = useState<SpotifyObject | null>(null);
 
@@ -25,7 +27,7 @@ const SpotifyPlaying = ({
       refresh_token,
       handleLastPlayed,
     }).then(() => {
-      setTimeout(updateSongInfo, 10000);
+      setTimeout(updateSongInfo, refreshInterval);
       return getSongInfo({ handleLastPlayed });
     });
   };
@@ -34,7 +36,13 @@ const SpotifyPlaying = ({
     updateSongInfo();
   }, []);
 
-  return <NowPlayingCard lastPlayed={lastPlayed} variant={variant} />;
+  return (
+    <NowPlayingCard
+      lastPlayed={lastPlayed}
+      variant={variant}
+      showPreviewBar={showPreviewBar}
+    />
+  );
 };
 
 export default SpotifyPlaying;

@@ -3,17 +3,22 @@ export type SpotifyNowProps = {
   client_secret: string;
   refresh_token: string;
   variant?: string;
+  refreshInterval?: number;
+  showPreviewBar?: boolean;
 };
 
 export type DebounceFunction<T extends unknown[]> = (...args: T) => void;
 
 export type PreviewPlayerProps = {
   lastPlayed: NowPlayingType | null;
+  variant?: string;
+  showPreviewBar?: boolean;
 };
 
 export type NowPlayingCardProps = {
   variant?: string;
   lastPlayed?: NowPlayingType | null;
+  showPreviewBar?: boolean;
 };
 
 export type AccessTokenApiProps = {

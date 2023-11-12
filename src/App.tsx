@@ -10,6 +10,9 @@ const App = () => {
       client_id={client_id}
       client_secret={client_secret}
       refresh_token={refresh_token}
+      refreshInterval={10000}
+      variant="minimal"
+      showPreviewBar={true}
     />
   );
 };

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { debounce } from "./utils";
 import { PreviewPlayerProps } from "./types";
 
-const PreviewPlayer = ({ lastPlayed }: PreviewPlayerProps) => {
+const PreviewPlayer = ({ lastPlayed, variant }: PreviewPlayerProps) => {
   const [audio] = useState(new Audio());
   const [playing, setPlaying] = useState(false);
 
@@ -57,23 +57,25 @@ const PreviewPlayer = ({ lastPlayed }: PreviewPlayerProps) => {
   return (
     <div className="bg-slate-50 text-slate-500 transition-all duration-500 dark:bg-slate-600 transition-all duration-500 dark:text-slate-200 rounded-b-xl flex items-center">
       <div className="flex-auto flex items-center justify-evenly">
-        <button
-          type="button"
-          aria-label="Add to favorites"
-          className="cursor-pointer"
-          onClick={() => window.open(lastPlayed.item.external_urls.spotify)}
-        >
-          <svg width="24" height="24">
-            <path
-              d="M7 6.931C7 5.865 7.853 5 8.905 5h6.19C16.147 5 17 5.865 17 6.931V19l-5-4-5 4V6.931Z"
-              fill="currentColor"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            ></path>
-          </svg>
-        </button>
+        {variant !== "minimal" && (
+          <button
+            type="button"
+            aria-label="Add to favorites"
+            className="cursor-pointer"
+            onClick={() => window.open(lastPlayed.item.external_urls.spotify)}
+          >
+            <svg width="24" height="24">
+              <path
+                d="M7 6.931C7 5.865 7.853 5 8.905 5h6.19C16.147 5 17 5.865 17 6.931V19l-5-4-5 4V6.931Z"
+                fill="currentColor"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              ></path>
+            </svg>
+          </button>
+        )}
         <button type="button" aria-label="Rewind 10 seconds" onClick={rewind}>
           <svg width="24" height="24" fill="none">
             <path
@@ -134,14 +136,16 @@ const PreviewPlayer = ({ lastPlayed }: PreviewPlayerProps) => {
             ></path>
           </svg>
         </button>
-        <button
-          type="button"
-          id="playbackRate"
-          className="rounded-lg text-xs leading-6 font-semibold px-2 ring-2 ring-inset ring-slate-500 text-slate-500 transition-all duration-500 dark:text-slate-100 transition-all duration-500 dark:ring-0 transition-all duration-500 dark:bg-slate-500"
-          onClick={debouncedChangeRate}
-        >
-          <span id="playbackRate">{audio.playbackRate}x</span>
-        </button>
+        {variant !== "minimal" && (
+          <button
+            type="button"
+            id="playbackRate"
+            className="rounded-lg text-xs leading-6 font-semibold px-2 ring-2 ring-inset ring-slate-500 text-slate-500 transition-all duration-500 dark:text-slate-100 transition-all duration-500 dark:ring-0 transition-all duration-500 dark:bg-slate-500"
+            onClick={debouncedChangeRate}
+          >
+            <span id="playbackRate">{audio.playbackRate}x</span>
+          </button>
+        )}
       </div>
     </div>
   );

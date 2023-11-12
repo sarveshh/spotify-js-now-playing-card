@@ -12,6 +12,7 @@ const App = () => {
       refresh_token={refresh_token}
       refreshInterval={10000}
       variant="default"
+      showLyrics={true}
       showPreviewBar={true}
     />
   );

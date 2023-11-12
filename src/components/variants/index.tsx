@@ -7,6 +7,7 @@ export const NowPlayingCard = ({
   lyrics,
   lastPlayed,
   showPreviewBar = true,
+  showLyrics = false,
 }: NowPlayingCardProps) => {
   if (!lastPlayed) return null;
   let component = null;
@@ -18,6 +19,7 @@ export const NowPlayingCard = ({
           lastPlayed={lastPlayed}
           showPreviewBar={showPreviewBar}
           lyrics={lyrics}
+          showLyrics={showLyrics}
         />
       );
       break;
@@ -32,6 +34,7 @@ export const NowPlayingCard = ({
           lastPlayed={lastPlayed}
           showPreviewBar={showPreviewBar}
           lyrics={lyrics}
+          showLyrics={showLyrics}
         />
       );
       break;

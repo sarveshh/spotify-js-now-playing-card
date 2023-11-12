@@ -5,6 +5,7 @@ export type SpotifyNowProps = {
   variant?: string;
   refreshInterval?: number;
   showPreviewBar?: boolean;
+  showLyrics?: boolean;
 };
 
 export type DebounceFunction<T extends unknown[]> = (...args: T) => void;
@@ -17,6 +18,7 @@ export type PreviewPlayerProps = {
 
 export type DefaultPlayerProps = PreviewPlayerProps & {
   lyrics?: LyricsResponse | null;
+  showLyrics?: boolean;
 };
 
 export type NowPlayingCardProps = {
@@ -24,6 +26,7 @@ export type NowPlayingCardProps = {
   lyrics?: LyricsResponse | null;
   lastPlayed?: NowPlayingType | null;
   showPreviewBar?: boolean;
+  showLyrics?: boolean;
 };
 
 export type AccessTokenApiProps = {

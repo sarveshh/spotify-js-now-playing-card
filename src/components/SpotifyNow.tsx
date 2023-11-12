@@ -17,13 +17,13 @@ const SpotifyPlaying = ({
   variant,
   refreshInterval = 10000,
   showPreviewBar = true,
+  showLyrics = true,
 }: SpotifyNowProps) => {
   const [lastPlayed, setLastPlayed] = useState<SpotifyObject | null>(null);
   const [lyrics, setLyrics] = useState<LyricsResponse | null>(null);
 
   const handleLastPlayed = (data: SpotifyObject | null) => {
     setLastPlayed((prev) => {
-      //if the song is different from the previous one, reset the lyrics
       if (prev?.item?.id !== data?.item?.id) {
         setLyrics(null);
       }
@@ -48,7 +48,7 @@ const SpotifyPlaying = ({
       return;
     }
 
-    if (variant === "default" && lyrics === null) {
+    if (lyrics === null && showLyrics) {
       handleGetSongLyrics({ url: lastPlayed.item.external_urls.spotify })
         .then((data) => {
           setLyrics(data);
@@ -60,7 +60,7 @@ const SpotifyPlaying = ({
     } else {
       setLyrics(null);
     }
-  }, [lastPlayed, variant, lyrics]);
+  }, [lastPlayed, lyrics, showLyrics]);
 
   useEffect(() => {
     updateSongInfo();
@@ -71,6 +71,7 @@ const SpotifyPlaying = ({
       lastPlayed={lastPlayed}
       lyrics={lyrics}
       variant={variant}
+      showLyrics={showLyrics}
       showPreviewBar={showPreviewBar}
     />
   );

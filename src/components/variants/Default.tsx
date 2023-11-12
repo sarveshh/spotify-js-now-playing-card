@@ -7,11 +7,12 @@ const DefaultVariant = ({
   lastPlayed,
   showPreviewBar,
   lyrics,
+  showLyrics,
 }: DefaultPlayerProps) => {
   if (!lastPlayed) return null;
   return (
     <div className=" z-10 rounded-xl shadow-xl">
-      <div className="bg-white border-slate-100 transition-all duration-500 dark:bg-slate-800 transition-all duration-500 dark:border-slate-500 border-b rounded-t-xl p-4 pb-6 sm:p-10 sm:pb-8 lg:p-6 xl:p-10 xl:pb-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8">
+      <div className="bg-white border-slate-100 transition-all dark:bg-slate-800 duration-500 dark:border-slate-500 border-b rounded-t-xl p-4 pb-6 sm:p-10 sm:pb-8 lg:p-6 xl:p-10 xl:pb-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8">
         <div className="flex items-center space-x-4">
           <img
             src={lastPlayed.item.album.images[0].url}
@@ -49,11 +50,13 @@ const DefaultVariant = ({
             </p>
           </div>
 
-          <SyncedLyrics
-            key={lyrics?.lines.length}
-            lyricsData={lyrics}
-            currentMs={lastPlayed.progress_ms}
-          />
+          {showLyrics && lyrics && (
+            <SyncedLyrics
+              key={lyrics?.lines.length}
+              lyricsData={lyrics}
+              currentMs={lastPlayed.progress_ms}
+            />
+          )}
         </div>
         <div className="space-y-2">
           <div className="relative">

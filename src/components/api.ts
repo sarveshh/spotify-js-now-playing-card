@@ -60,3 +60,16 @@ export const getSongInfo = ({ handleLastPlayed }: SongInfoApiProps) => {
       handleLastPlayed(null);
     });
 };
+
+export const handleGetSongLyrics = ({ url }: { url: string }) => {
+  return fetch(
+    `https://spotify-lyric-api-984e7b4face0.herokuapp.com/?url=${url}`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};

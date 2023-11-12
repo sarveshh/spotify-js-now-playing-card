@@ -4,6 +4,7 @@ import Minimal from "./Minimal";
 
 export const NowPlayingCard = ({
   variant,
+  lyrics,
   lastPlayed,
   showPreviewBar = true,
 }: NowPlayingCardProps) => {
@@ -16,6 +17,7 @@ export const NowPlayingCard = ({
         <DefaultVariant
           lastPlayed={lastPlayed}
           showPreviewBar={showPreviewBar}
+          lyrics={lyrics}
         />
       );
       break;

@@ -11,7 +11,7 @@ const App = () => {
       client_secret={client_secret}
       refresh_token={refresh_token}
       refreshInterval={10000}
-      variant="minimal"
+      variant="default"
       showPreviewBar={true}
     />
   );

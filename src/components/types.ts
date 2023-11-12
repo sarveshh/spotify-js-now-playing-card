@@ -15,8 +15,13 @@ export type PreviewPlayerProps = {
   showPreviewBar?: boolean;
 };
 
+export type DefaultPlayerProps = PreviewPlayerProps & {
+  lyrics?: LyricsResponse | null;
+};
+
 export type NowPlayingCardProps = {
   variant?: string;
+  lyrics?: LyricsResponse | null;
   lastPlayed?: NowPlayingType | null;
   showPreviewBar?: boolean;
 };
@@ -32,6 +37,19 @@ export type SongInfoApiProps = {
   // client_id: string;
   // client_secret: string;
   handleLastPlayed: (data: NowPlayingType | null) => void;
+};
+
+export type LyricsLine = {
+  startTimeMs: string;
+  words: string;
+  syllables: unknown[];
+  endTimeMs: string;
+};
+
+export type LyricsResponse = {
+  error: boolean;
+  syncType: string;
+  lines: LyricsLine[];
 };
 
 export type NowPlayingType = {

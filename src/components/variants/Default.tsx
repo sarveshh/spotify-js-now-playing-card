@@ -1,8 +1,14 @@
 import { timeStringFromMs } from "../utils";
-import { PreviewPlayerProps } from "../types";
+import { DefaultPlayerProps } from "../types";
 import PreviewPlayer from "../PreviewPlayer";
+import SyncedLyrics from "../../SyncedLyrics";
 
-const DefaultVariant = ({ lastPlayed, showPreviewBar }: PreviewPlayerProps) => {
+const DefaultVariant = ({
+  lastPlayed,
+  showPreviewBar,
+  lyrics,
+}: DefaultPlayerProps) => {
+  console.log("lyricsshow", lyrics);
   if (!lastPlayed) return null;
   return (
     <div className=" z-10 rounded-xl shadow-xl">
@@ -43,10 +49,16 @@ const DefaultVariant = ({ lastPlayed, showPreviewBar }: PreviewPlayerProps) => {
               {lastPlayed.item.name}
             </p>
           </div>
+          {/* Synced Lyrics Component */}
+
+          <SyncedLyrics
+            lyricsData={lyrics}
+            currentMs={lastPlayed.progress_ms}
+          />
         </div>
         <div className="space-y-2">
           <div className="relative">
-            <div className="bg-slate-100 transition-all duration-500 dark:bg-slate-700 rounded-full overflow-hidden">
+            <div className=" bg-slate-100 transition-all duration-500 dark:bg-slate-700 rounded-full overflow-hidden">
               <div
                 className="bg-cyan-500 transition-all duration-500 dark:bg-cyan-400 h-2"
                 style={{

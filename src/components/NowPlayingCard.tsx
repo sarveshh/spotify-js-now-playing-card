@@ -12,7 +12,7 @@ export const NowPlayingCard = ({
     return `${minutes}:${secondsLeft}`;
   };
 
-  const [audio] = useState(new Audio(lastPlayed?.item.preview_url));
+  const [audio] = useState(new Audio(lastPlayed?.item?.preview_url));
   const [playing, setPlaying] = useState(false);
 
   const toggle = () => setPlaying(!playing);
@@ -109,7 +109,7 @@ export const NowPlayingCard = ({
                 </div>
               </div>
             </div>
-            {lastPlayed.item.preview_url && (
+            {lastPlayed?.item?.preview_url && (
               <div className="bg-slate-50 text-slate-500 transition-all duration-500 dark:bg-slate-600 transition-all duration-500 dark:text-slate-200 rounded-b-xl flex items-center">
                 <div className="flex-auto flex items-center justify-evenly">
                   <button

@@ -1,6 +1,7 @@
 export type SpotifyNowProps = {
   client_id: string;
   client_secret: string;
+  refresh_token: string;
   variant?: string;
 };
 
@@ -12,6 +13,13 @@ export type NowPlayingCardProps = {
 export type AccessTokenApiProps = {
   client_id: string;
   client_secret: string;
+  refresh_token: string;
+  handleLastPlayed: (data: NowPlayingType | null) => void;
+};
+
+export type SongInfoApiProps = {
+  // client_id: string;
+  // client_secret: string;
   handleLastPlayed: (data: NowPlayingType | null) => void;
 };
 

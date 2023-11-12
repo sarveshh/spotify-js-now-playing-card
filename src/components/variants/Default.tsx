@@ -8,7 +8,6 @@ const DefaultVariant = ({
   showPreviewBar,
   lyrics,
 }: DefaultPlayerProps) => {
-  console.log("lyricsshow", lyrics);
   if (!lastPlayed) return null;
   return (
     <div className=" z-10 rounded-xl shadow-xl">
@@ -49,9 +48,9 @@ const DefaultVariant = ({
               {lastPlayed.item.name}
             </p>
           </div>
-          {/* Synced Lyrics Component */}
 
           <SyncedLyrics
+            key={lyrics?.lines.length}
             lyricsData={lyrics}
             currentMs={lastPlayed.progress_ms}
           />

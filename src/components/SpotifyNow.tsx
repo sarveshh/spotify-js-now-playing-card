@@ -22,7 +22,13 @@ const SpotifyPlaying = ({
   const [lyrics, setLyrics] = useState<LyricsResponse | null>(null);
 
   const handleLastPlayed = (data: SpotifyObject | null) => {
-    setLastPlayed(data);
+    setLastPlayed((prev) => {
+      //if the song is different from the previous one, reset the lyrics
+      if (prev?.item?.id !== data?.item?.id) {
+        setLyrics(null);
+      }
+      return data;
+    });
   };
 
   const updateSongInfo = () => {
@@ -36,23 +42,25 @@ const SpotifyPlaying = ({
       return getSongInfo({ handleLastPlayed });
     });
   };
+
   useEffect(() => {
-    if (
-      lastPlayed?.item?.external_urls?.spotify &&
-      variant === "default" &&
-      !lyrics
-    ) {
+    if (!lastPlayed?.item?.external_urls?.spotify || lyrics !== null) {
+      return;
+    }
+
+    if (variant === "default" && lyrics === null) {
       handleGetSongLyrics({ url: lastPlayed.item.external_urls.spotify })
-        .then((res) => {
-          setLyrics(res);
+        .then((data) => {
+          setLyrics(data);
         })
         .catch((err) => {
           console.error(err);
+          setLyrics(null);
         });
     } else {
       setLyrics(null);
     }
-  }, [lastPlayed?.item?.external_urls?.spotify, variant]);
+  }, [lastPlayed, variant, lyrics]);
 
   useEffect(() => {
     updateSongInfo();

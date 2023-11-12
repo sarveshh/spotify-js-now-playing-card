@@ -31,6 +31,7 @@ export const NowPlayingCard = ({
         <DefaultVariant
           lastPlayed={lastPlayed}
           showPreviewBar={showPreviewBar}
+          lyrics={lyrics}
         />
       );
       break;

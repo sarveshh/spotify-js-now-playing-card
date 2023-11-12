@@ -2,7 +2,7 @@ import ls from "localstorage-slim";
 import { AccessTokenApiProps, NowPlayingType, SongInfoApiProps } from "./types";
 
 ls.config.encrypt = true;
-const access_token = ls.get("access_token");
+let access_token = ls.get("access_token");
 
 export const getAccessToken = ({
   client_id,
@@ -20,6 +20,7 @@ export const getAccessToken = ({
   })
     .then((response) => response.json())
     .then((data) => {
+      access_token = data.access_token;
       ls.set("access_token", data.access_token);
       setTimeout(getAccessToken, (data.expires_in - 60) * 1000); // Refresh token 60 seconds before it expires
       return data.access_token;

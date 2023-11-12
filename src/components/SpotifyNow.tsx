@@ -12,8 +12,6 @@ const SpotifyPlaying = ({
   refresh_token,
   variant,
 }: SpotifyNowProps) => {
-  console.log("client_id", client_id, client_secret, variant, refresh_token);
-
   const [lastPlayed, setLastPlayed] = useState<SpotifyObject | null>(null);
 
   const handleLastPlayed = (data: SpotifyObject | null) => {
@@ -36,7 +34,7 @@ const SpotifyPlaying = ({
     updateSongInfo();
   }, []);
 
-  return <NowPlayingCard lastPlayed={lastPlayed} variant="default" />;
+  return <NowPlayingCard lastPlayed={lastPlayed} variant={variant} />;
 };
 
 export default SpotifyPlaying;

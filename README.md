@@ -49,7 +49,7 @@ https://accounts.spotify.com/authorize?client_id=CLIENT_ID&response_type=code&re
 curl -X POST -H "Authorization: Basic BASE64_ENCODED_CLIENTID_CLIENTSECRET" -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=authorization_code&code=AUTHORIZATION_CODE&redirect_uri=REDIRECT_URI" https://accounts.spotify.com/api/token
 ```
 7. If done properly, this will should give you your refresh token.
-8. In the JavaScript file, replace YOUR_CLIENT_ID, YOUR_CLIENT_SECRET, and YOUR_REFRESH_TOKEN with your own.
+8. Import SPotifyNow Component and pass client_id client_secret and refresh_token as props with their respective values.
 
 ## 🛠 Built With
 

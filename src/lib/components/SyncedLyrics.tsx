@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { LyricsResponse } from "./components/types";
+import { useState, useEffect } from "react";
+import { LyricsResponse } from "../types";
 
 const SyncedLyrics = ({
   lyricsData,

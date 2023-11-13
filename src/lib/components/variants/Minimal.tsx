@@ -1,5 +1,5 @@
-import { timeStringFromMs } from "../utils";
-import { PreviewPlayerProps } from "../types";
+import { timeStringFromMs } from "../../utils";
+import { PreviewPlayerProps } from "../../types";
 import PreviewPlayer from "../PreviewPlayer";
 
 const Minimal = ({ lastPlayed, showPreviewBar }: PreviewPlayerProps) => {

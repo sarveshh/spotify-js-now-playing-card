@@ -1,6 +1,5 @@
 import ls from "localstorage-slim";
 import { AccessTokenApiProps, NowPlayingType, SongInfoApiProps } from "./types";
-import axios from "axios";
 
 ls.config.encrypt = true;
 let access_token = ls.get("access_token");
@@ -12,18 +11,16 @@ export const getAccessToken = async ({
   handleLastPlayed,
 }: AccessTokenApiProps) => {
   try {
-    const response = await axios.post(
-      `https://accounts.spotify.com/api/token`,
-      `grant_type=refresh_token&refresh_token=${refresh_token}`,
-      {
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-          Authorization: "Basic " + btoa(`${client_id}:${client_secret}`),
-        },
-      }
-    );
+    const response = await fetch(`https://accounts.spotify.com/api/token`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Authorization: "Basic " + btoa(`${client_id}:${client_secret}`),
+      },
+      body: `grant_type=refresh_token&refresh_token=${refresh_token}`,
+    });
 
-    const data = response.data;
+    const data = await response.json();
     access_token = data.access_token;
     ls.set("access_token", data.access_token);
 
@@ -48,7 +45,7 @@ export const getAccessToken = async ({
 
 export const getSongInfo = async ({ handleLastPlayed }: SongInfoApiProps) => {
   try {
-    const response = await axios.get(
+    const response = await fetch(
       "https://api.spotify.com/v1/me/player/currently-playing",
       {
         headers: {
@@ -58,7 +55,7 @@ export const getSongInfo = async ({ handleLastPlayed }: SongInfoApiProps) => {
     );
 
     if (response.status === 204) {
-      const recentPlayedResponse = await axios.get(
+      const recentPlayedResponse = await fetch(
         "https://api.spotify.com/v1/me/player/recently-played",
         {
           headers: {
@@ -67,12 +64,13 @@ export const getSongInfo = async ({ handleLastPlayed }: SongInfoApiProps) => {
         }
       );
 
-      const data = recentPlayedResponse.data as NowPlayingType;
+      const data = (await recentPlayedResponse.json()) as NowPlayingType;
       handleLastPlayed(data);
-      return recentPlayedResponse.data;
+      return data;
     } else {
-      handleLastPlayed(response.data);
-      return response.data;
+      const data = (await response.json()) as NowPlayingType;
+      handleLastPlayed(data);
+      return data;
     }
   } catch (error) {
     console.error(error);
@@ -82,10 +80,11 @@ export const getSongInfo = async ({ handleLastPlayed }: SongInfoApiProps) => {
 
 export const handleGetSongLyrics = async ({ url }: { url: string }) => {
   try {
-    const response = await axios.get(
+    const response = await fetch(
       `https://spotify-lyric-api-984e7b4face0.herokuapp.com/?url=${url}`
     );
-    return response.data;
+    const data = await response.json();
+    return data;
   } catch (error) {
     console.error(error);
   }

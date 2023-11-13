@@ -2,7 +2,7 @@
   "name": "spotify-playing-react",
   "description": "A simple Spotify Now Playing widget for Javascript",
   "private": false,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "main": "./dist/SpotifyNow.umd.cjs",
   "module": "./dist/SpotifyNow.js",

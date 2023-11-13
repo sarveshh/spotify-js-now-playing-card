@@ -2,11 +2,11 @@
   "name": "spotify-playing-react",
   "description": "A simple Spotify Now Playing widget for Javascript",
   "private": false,
-  "version": "1.0.1",
+  "version": "1.0.3",
   "type": "module",
   "main": "./dist/SpotifyNow.umd.cjs",
   "module": "./dist/SpotifyNow.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/lib/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/SpotifyNow.js",
@@ -26,9 +26,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "localstorage-slim": "^2.7.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "localstorage-slim": "^2.7.0"
   },
   "devDependencies": {
     "@types/node": "^20.9.0",

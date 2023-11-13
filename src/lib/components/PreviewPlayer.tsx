@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import { debounce } from "./utils";
-import { PreviewPlayerProps } from "./types";
+import { debounce } from "../utils";
+import { PreviewPlayerProps } from "../types";
 
 const PreviewPlayer = ({ lastPlayed, variant }: PreviewPlayerProps) => {
   const [audio] = useState(new Audio());

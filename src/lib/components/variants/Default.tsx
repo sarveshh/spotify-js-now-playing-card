@@ -1,7 +1,7 @@
-import { timeStringFromMs } from "../utils";
-import { DefaultPlayerProps } from "../types";
+import { timeStringFromMs } from "../../utils";
+import { DefaultPlayerProps } from "../../types";
 import PreviewPlayer from "../PreviewPlayer";
-import SyncedLyrics from "../../SyncedLyrics";
+import SyncedLyrics from "../SyncedLyrics";
 
 const DefaultVariant = ({
   lastPlayed,

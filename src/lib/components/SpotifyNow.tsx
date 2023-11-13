@@ -3,9 +3,9 @@ import {
   LyricsResponse,
   SpotifyNowProps,
   NowPlayingType as SpotifyObject,
-} from "./types";
+} from "../types";
 import ls from "localstorage-slim";
-import { getAccessToken, getSongInfo, handleGetSongLyrics } from "./api";
+import { getAccessToken, getSongInfo, handleGetSongLyrics } from "../api";
 import { NowPlayingCard } from "./variants";
 
 ls.config.encrypt = true;

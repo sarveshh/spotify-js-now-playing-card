@@ -1,4 +1,4 @@
-import SpotifyPlaying from "./components/SpotifyNow";
+import SpotifyPlaying from "./lib/components/SpotifyNow";
 
 const client_id = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
 const client_secret = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET;

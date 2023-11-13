@@ -1,4 +1,4 @@
-import { NowPlayingCardProps } from "../types";
+import { NowPlayingCardProps } from "../../types";
 import DefaultVariant from "./Default";
 import Minimal from "./Minimal";
 

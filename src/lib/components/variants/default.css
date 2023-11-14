@@ -1,0 +1,151 @@
+.defualt-container {
+  z-index: 1000;
+  border-radius: 0.75rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.song-info {
+  padding: 1rem;
+  padding-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+  border-bottom-width: 1px;
+  background-color: #ffffff;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  transition-duration: 500ms;
+
+  @media (min-width: 640px) {
+    padding: 2.5rem;
+    padding-bottom: 2rem;
+    margin-top: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 1280px) {
+    padding: 2.5rem;
+    padding-bottom: 2rem;
+    margin-top: 2rem;
+  }
+}
+
+.song-name {
+  display: flex;
+  margin-left: 1rem;
+  align-items: center;
+
+  #song-image {
+    flex: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+
+  #names {
+    margin-top: 0.25rem;
+    flex: 1 1 auto;
+    min-width: 0;
+    font-weight: 600;
+
+    #album {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      line-height: 1.5rem;
+      transition-property: all;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 300ms;
+      transition-duration: 500ms;
+    }
+
+    #arists {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      line-height: 1.5rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      transition-property: all;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 300ms;
+      transition-duration: 500ms;
+    }
+
+    #song {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+      transition-property: all;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 300ms;
+      transition-duration: 500ms;
+      cursor: pointer;
+    }
+  }
+}
+
+.trackbar {
+  overflow: hidden;
+  margin-top: 0.5rem;
+  border-radius: 9999px;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  transition-duration: 500ms;
+
+  #line {
+    height: 0.5rem;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+    transition-duration: 500ms;
+  }
+
+  #ring {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5rem;
+    margin-left: -0.5rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9999px;
+    box-shadow: var(--tw-ring-inset) 0 0 0
+      calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    width: 1rem;
+    height: 1rem;
+    background-color: #ffffff;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+    transition-duration: 500ms;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  }
+}
+
+.trackbar-count {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5rem;
+
+  #left {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+    transition-duration: 500ms;
+  }
+
+  #right {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+    transition-duration: 500ms;
+  }
+}

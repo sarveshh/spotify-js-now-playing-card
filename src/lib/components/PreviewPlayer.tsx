@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { debounce } from "../utils";
 import { PreviewPlayerProps } from "../types";
+import "./previewPlayer.css";
 
 const PreviewPlayer = ({ lastPlayed, variant }: PreviewPlayerProps) => {
   const [audio] = useState(new Audio());
@@ -55,13 +56,13 @@ const PreviewPlayer = ({ lastPlayed, variant }: PreviewPlayerProps) => {
   if (!lastPlayed?.item?.preview_url) return null;
 
   return (
-    <div className="bg-slate-50 text-slate-500 transition-all  dark:bg-slate-600 duration-500 dark:text-slate-200 rounded-b-xl flex items-center">
-      <div className="flex-auto flex items-center justify-evenly">
+    <div className="player-container">
+      <div className="side-buttons">
         {variant !== "minimal" && (
           <button
             type="button"
             aria-label="Add to favorites"
-            className="cursor-pointer"
+            style={{ cursor: "pointer" }}
             onClick={() => window.open(lastPlayed.item.external_urls.spotify)}
           >
             <svg width="24" height="24">
@@ -97,7 +98,7 @@ const PreviewPlayer = ({ lastPlayed, variant }: PreviewPlayerProps) => {
       </div>
       <button
         type="button"
-        className="bg-white text-slate-900  dark:bg-slate-100 transition-all duration-500 dark:text-slate-700 flex-none -my-2 mx-auto w-20 h-20 rounded-full ring-1 ring-slate-900/5 shadow-md flex items-center justify-center"
+        className="pause-play"
         aria-label="Pause"
         onClick={toggle}
       >
@@ -117,7 +118,7 @@ const PreviewPlayer = ({ lastPlayed, variant }: PreviewPlayerProps) => {
           </svg>
         )}
       </button>
-      <div className="flex-auto flex items-center justify-evenly">
+      <div className="side-buttons">
         <button type="button" aria-label="Skip 10 seconds" onClick={skip}>
           <svg width="24" height="24" fill="none">
             <path
@@ -139,11 +140,10 @@ const PreviewPlayer = ({ lastPlayed, variant }: PreviewPlayerProps) => {
         {variant !== "minimal" && (
           <button
             type="button"
-            id="playbackRate"
-            className="rounded-lg text-xs leading-6 font-semibold px-2 ring-2 ring-inset ring-slate-500 text-slate-500   dark:text-slate-100 transition-all duration-500 dark:ring-0  dark:bg-slate-500"
+            className="playbackrate"
             onClick={debouncedChangeRate}
           >
-            <span id="playbackRate">{audio.playbackRate}x</span>
+            <span>{audio.playbackRate}x</span>
           </button>
         )}
       </div>

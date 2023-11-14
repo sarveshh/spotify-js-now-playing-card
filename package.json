@@ -2,7 +2,7 @@
   "name": "spotify-playing-react",
   "description": "A simple Spotify Now Playing widget for Javascript",
   "private": false,
-  "version": "1.0.3",
+  "version": "1.0.7",
   "type": "module",
   "main": "./dist/SpotifyNow.umd.cjs",
   "module": "./dist/SpotifyNow.js",
@@ -21,7 +21,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tailwindcss -o dist/styles.css && tsc && vite build",
+    "build:css": "tailwindcss -o dist/styles.css --minify",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -46,7 +47,7 @@
     "vite-plugin-dts": "^3.6.3"
   },
   "peerDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

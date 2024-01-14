@@ -1,3 +1,4 @@
+import useThemeDetector from "../../../../hooks/useDarkThemeDetector";
 import { DefaultPlayerProps } from "../../../types";
 import { timeStringFromMs } from "../../../utils";
 import PreviewPlayer from "../../PreviewPlayer/PreviewPlayer";
@@ -10,10 +11,14 @@ const DefaultVariant = ({
   showPreviewBar,
   lyrics,
   showLyrics,
+  theme,
 }: DefaultPlayerProps) => {
+  const isDarkTheme = useThemeDetector();
   if (!lastPlayed) return null;
   return (
-    <div className="container">
+    <div
+      className={`container ${isDarkTheme || theme === "dark" ? "dark" : ""}`}
+    >
       <div className="player-card space6">
         <div className="songinfo space4">
           <img

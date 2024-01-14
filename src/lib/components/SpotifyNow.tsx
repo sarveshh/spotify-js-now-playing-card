@@ -18,6 +18,7 @@ const SpotifyPlaying = ({
   refreshInterval = 10000,
   showPreviewBar = true,
   showLyrics = true,
+  theme = "dark",
 }: SpotifyNowProps) => {
   const [lastPlayed, setLastPlayed] = useState<SpotifyObject | null>(null);
   const [lyrics, setLyrics] = useState<LyricsResponse | null>(null);
@@ -64,7 +65,7 @@ const SpotifyPlaying = ({
 
   useEffect(() => {
     updateSongInfo();
-  });
+  }, []);
 
   return (
     <NowPlayingCard
@@ -73,6 +74,7 @@ const SpotifyPlaying = ({
       variant={variant}
       showLyrics={showLyrics}
       showPreviewBar={showPreviewBar}
+      theme={theme}
     />
   );
 };

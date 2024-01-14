@@ -1,3 +1,13 @@
+.previewPlayerContainer button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
 .previewPlayerContainer {
   /* bg-slate-50 text-slate-500 transition-all  dark:bg-slate-600 duration-500 dark:text-slate-200 rounded-b-xl flex items-center */
   background-color: rgb(248 250 252);
@@ -6,6 +16,7 @@
   border-bottom-right-radius: 0.75rem;
   display: flex;
   align-items: center;
+  /* padding-bottom: 15px; */
 }
 
 .previewPlayerContainer .controls {
@@ -21,6 +32,37 @@
 
 .previewPlayerContainer .pausePlay {
   cursor: pointer;
+  /* bg-white text-slate-900  dark:bg-slate-100 transition-all duration-500 dark:text-slate-700 flex-none -my-2 mx-auto w-20 h-20 rounded-full ring-1 ring-slate-900/5 shadow-md flex items-center justify-center */
+  background-color: rgb(255 255 255);
+  color: rgb(15 23 42);
+  flex: none;
+  margin-top: -0.5rem;
+  margin-bottom: -0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 9999px;
+  --tw-ring-color: rgb(15 23 42 / 0.05);
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
+    var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0
+    calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+    var(--tw-shadow, 0 0 #0000);
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color),
+    0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark .previewPlayerContainer .pausePlay {
+  background-color: rgb(241 245 249);
+  color: rgb(51 65 85);
 }
 
 .dark .previewPlayerContainer {

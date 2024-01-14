@@ -95,7 +95,7 @@ const PreviewPlayer = ({ lastPlayed }: PreviewPlayerProps) => {
       </div>
       <button
         type="button"
-        className="bg-white text-slate-900  dark:bg-slate-100 transition-all duration-500 dark:text-slate-700 flex-none -my-2 mx-auto w-20 h-20 rounded-full ring-1 ring-slate-900/5 shadow-md flex items-center justify-center"
+        className="pausePlay transition-all"
         aria-label="Pause"
         onClick={toggle}
       >

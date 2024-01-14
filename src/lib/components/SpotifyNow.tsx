@@ -1,11 +1,11 @@
+import ls from "localstorage-slim";
 import { useEffect, useState } from "react";
+import { getAccessToken, getSongInfo, handleGetSongLyrics } from "../api";
 import {
   LyricsResponse,
   SpotifyNowProps,
   NowPlayingType as SpotifyObject,
 } from "../types";
-import ls from "localstorage-slim";
-import { getAccessToken, getSongInfo, handleGetSongLyrics } from "../api";
 import { NowPlayingCard } from "./variants";
 
 ls.config.encrypt = true;
@@ -64,7 +64,7 @@ const SpotifyPlaying = ({
 
   useEffect(() => {
     updateSongInfo();
-  }, []);
+  });
 
   return (
     <NowPlayingCard

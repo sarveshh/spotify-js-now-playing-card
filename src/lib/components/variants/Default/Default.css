@@ -1,0 +1,198 @@
+.container {
+  z-index: 100;
+  border-radius: 10%;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.player-card {
+  border-color: rgb(241 245 249);
+  border-top-left-radius: 0.75rem /* 12px */;
+  border-top-right-radius: 0.75rem;
+  padding: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+.dark .player-card {
+  background-color: rgb(30 41 59);
+  border-color: rgb(100 116 139);
+}
+
+.songinfo {
+  display: flex;
+  align-items: center;
+}
+
+.songinfo img {
+  flex: none;
+  border-radius: 0.5rem;
+  background-color: rgb(241 245 249);
+  cursor: pointer;
+}
+
+.songinfo h2 {
+  color: rgb(100 116 139);
+  font-size: 0.875rem /* 14px */;
+  line-height: 1.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.songinfo h2 span {
+  cursor: pointer;
+}
+
+.dark .songinfo h2 {
+  color: rgb(148 163 184);
+}
+
+.songNameInfo {
+  min-width: 0px;
+  flex: 1 1 auto;
+  font-weight: 600;
+}
+
+.songNameInfo .albumName {
+  /* text-cyan-500 transition-all duration-500 dark:text-cyan-400 text-sm leading-6 */
+  color: rgb(6 182 212);
+  transition-property: color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+}
+.songNameInfo .songName {
+  cursor: pointer;
+  color: rgb(15 23 42);
+  font-size: 1.125rem /* 18px */;
+  line-height: 1.75rem;
+}
+
+.dark .songNameInfo .songName {
+  color: rgb(248 250 252);
+}
+
+.dark .songNameInfo .albumName {
+  color: rgb(34, 211, 238);
+}
+
+.progress {
+  position: relative;
+}
+
+.progress .withBg {
+  background-color: rgb(241 245 249);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress .progress-ring {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(6 182 212 / var(--tw-ring-opacity));
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
+    var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0
+    calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+    var(--tw-shadow, 0 0 #0000);
+  position: absolute;
+  top: 50%;
+  width: 1rem;
+  height: 1rem;
+  margin-top: -0.5rem;
+  margin-left: -0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 9999px;
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
+    0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.progress .progress-ring .inner {
+  width: 0.375rem;
+  height: 0.375rem;
+  background-color: rgb(6 182 212);
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
+    var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0
+    calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+    var(--tw-shadow, 0 0 #0000);
+  --tw-ring-inset: inset;
+  --tw-ring-color: rgb(15 23 42 / 0.05);
+}
+
+.dark .progress .progress-ring .inner {
+  background-color: rgb(34 211 238);
+  border-radius: 9999px;
+}
+
+.dark .progress .progress-ring {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(34 211 238 / var(--tw-ring-opacity));
+}
+
+.progress .withBg .progress-bar {
+  background-color: rgb(6 182 212);
+  height: 0.5rem /* 4px */;
+}
+
+.dark .progress .withBg .progress-bar {
+  background-color: rgb(34 211 238);
+}
+
+.dark .progress .withBg {
+  background-color: rgb(51 65 85);
+}
+
+.progress-texts {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem /* 14px */;
+  line-height: 1.25rem;
+  font-weight: 500;
+  --tw-numeric-spacing: tabular-nums;
+  font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero)
+    var(--tw-numeric-figure) var(--tw-numeric-spacing)
+    var(--tw-numeric-fraction);
+}
+
+.progress-texts .current {
+  color: rgb(6 182 212);
+}
+
+.dark .progress-texts .current {
+  color: rgb(241 245 249);
+}
+
+.progress-texts .duration {
+  color: rgb(148 163 184);
+}
+
+.dark .progress-texts .duration {
+  color: rgb(148 163 184);
+}
+
+@media (min-width: 640px) {
+  .player-card {
+    padding: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .player-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .player-card {
+    padding: 2.5rem /* 40px */;
+  }
+}

@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
-import { LyricsResponse } from "../types";
+import { useEffect, useState } from "react";
+import { LyricsResponse } from "../../types";
+import "./SyncedLyrics.css";
 
 const SyncedLyrics = ({
   lyricsData,
@@ -26,8 +27,8 @@ const SyncedLyrics = ({
       return (
         <div
           key={`${line.startTimeMs}-${i}`}
-          className={`font-serif transition-all duration-500  text-md leading-6 truncate ${
-            i === 2 ? "text-white" : "text-slate-500 dark:text-slate-400"
+          className={`synced-lyrics transition-all ${
+            i === 2 ? "text-white" : "text-slate "
           }`}
         >
           {line.words}
@@ -35,11 +36,7 @@ const SyncedLyrics = ({
       );
     });
 
-  return (
-    <div key={lyricsData?.lines.length} className="synced-lyrics">
-      {lines}
-    </div>
-  );
+  return <div key={lyricsData?.lines.length}>{lines}</div>;
 };
 
 export default SyncedLyrics;

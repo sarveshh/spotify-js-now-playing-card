@@ -1,0 +1,20 @@
+.synced-lyrics {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 14px;
+  line-height: 1.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-slate {
+  color: rgb(100 116 139);
+}
+
+.dark .synced-lyrics {
+  color: rgb(148 163 184);
+}

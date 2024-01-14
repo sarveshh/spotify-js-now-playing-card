@@ -1,6 +1,5 @@
 import { NowPlayingCardProps } from "../../types";
-import DefaultVariant from "./Default";
-import Minimal from "./Minimal";
+import DefaultVariant from "./Default/Default";
 
 export const NowPlayingCard = ({
   variant,
@@ -23,11 +22,7 @@ export const NowPlayingCard = ({
         />
       );
       break;
-    case "minimal":
-      component = (
-        <Minimal lastPlayed={lastPlayed} showPreviewBar={showPreviewBar} />
-      );
-      break;
+
     default:
       component = (
         <DefaultVariant

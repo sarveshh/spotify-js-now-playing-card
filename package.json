@@ -21,8 +21,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tailwindcss -o dist/styles.css && tsc && vite build",
-    "build:css": "tailwindcss -o dist/styles.css --minify",
+    "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -41,7 +40,6 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.5",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vite-plugin-dts": "^3.6.3"

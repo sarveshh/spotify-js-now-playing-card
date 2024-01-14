@@ -50,7 +50,6 @@ curl -X POST -H "Authorization: Basic BASE64_ENCODED_CLIENTID_CLIENTSECRET" -H "
 ## 🛠 Built With
 
 - Vite
-- Tailwind Css
 - Typescript
 - Spotify Web Api
 

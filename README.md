@@ -10,11 +10,7 @@
   ### Default Variant
 <img src="https://raw.githubusercontent.com/sarveshh/sarveshh/main/default.png" alt="Hero image"/>
 <p/>
-     <p align="center">
-  
-  ### Minimal Variant
-<img src="https://raw.githubusercontent.com/sarveshh/sarveshh/main/minimal.png" alt="Hero image"/>
-<p/>
+
 
   <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.11-blue.svg?cacheSeconds=2592000" />
